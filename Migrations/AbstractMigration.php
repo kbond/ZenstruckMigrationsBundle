@@ -24,8 +24,10 @@ abstract class AbstractMigration extends BaseAbstractMigration
     /**
      * Returns description of data migation
      *
-     * @abstract
      * @return string
      */
-    abstract public function getDataDescription();
+    public function getDataDescription()
+    {
+        return $this->version->getVersion();
+    }
 }
