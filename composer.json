@@ -1,0 +1,21 @@
+{
+    "name": "zenstruck/migrations-bundle",
+    "description": "Wrapper for DoctrineMigrationsBundle that enables container aware migrations",
+    "keywords": ["Migrations"],
+    "homepage": "http://zenstruck.com/project/ZenstruckMigrationsBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Bond",
+            "email": "kevinbond@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/doctrine-migrations-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "Zenstruck\\Bundle\\MigrationsBundle": "" }
+    },
+    "target-dir": "Zenstruck/Bundle/MigrationsBundle"
+}
