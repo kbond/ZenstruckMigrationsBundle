@@ -5,8 +5,8 @@ namespace Zenstruck\Bundle\MigrationsBundle\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Bundle\DoctrineBundle\Command\Proxy\DoctrineCommandHelper;
-use Symfony\Bundle\DoctrineMigrationsBundle\Command\DoctrineCommand;
+use Doctrine\Bundle\DoctrineBundle\Command\Proxy\DoctrineCommandHelper;
+use Doctrine\Bundle\MigrationsBundle\Command\DoctrineCommand;
 use Doctrine\DBAL\Migrations\Tools\Console\Command\MigrateCommand as BaseMigrateCommand;
 use Zenstruck\Bundle\MigrationsBundle\Migrations\AbstractMigration;
 
