@@ -17,5 +17,10 @@
     "autoload": {
         "psr-0": { "Zenstruck\\Bundle\\MigrationsBundle": "" }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
     "target-dir": "Zenstruck/Bundle/MigrationsBundle"
 }
