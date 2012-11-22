@@ -2,35 +2,19 @@
 
 Wrapper for DoctrineMigrationsBundle that enables container aware migrations.
 
+**NOTE:** For use with `Symfony 2.0` use the `1.x` branch
+
 ## Installation
 
-1. Add this bundle to your project
-    * Using `deps` file
+1. Add to `composer.json` (see http://getcomposer.org/)
 
-        ```ini
-        [ZenstruckMigrationsBundle]
-           git=git://github.com/kbond/ZenstruckMigrationsBundle.git
-           target=bundles/Zenstruck/Bundle/MigrationsBundle
-        ```
-    * Using submodules
-    
-        ```
-        git submodule add git://github.com/kbond/ZenstruckMigrationsBundle.git vendor/bundles/Zenstruck/Bundle/MigrationsBundle
-        ```
-        
-2. Register the namespaces
-    
-    ```php
-    <?php
-    // app/autoload.php
-    $loader->registerNamespaces(array(
-        // ...
-        'Zenstruck' => __DIR__.'/../vendor/bundles',
-        // ...
-    ));
+    ```json
+    "require" :  {
+        "zenstruck/migrations-bundle": "*",
+    }
     ```
 
-3. Register the bundle
+2. Register the bundle
 
     ```php
     <?php
