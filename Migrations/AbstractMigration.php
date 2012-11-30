@@ -22,6 +22,14 @@ abstract class AbstractMigration extends BaseAbstractMigration
     abstract public function dataUp(ContainerInterface $container);
 
     /**
+     * Run container-aware data migration logic
+     *
+     * @abstract
+     * @param ContainerInterface $container
+     */
+    abstract public function dataDown(ContainerInterface $container);
+
+    /**
      * Returns description of data migation
      *
      * @return string
