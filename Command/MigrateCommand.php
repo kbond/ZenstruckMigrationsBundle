@@ -31,18 +31,28 @@ class MigrateCommand extends BaseMigrateCommand
         $configuration = $this->getMigrationConfiguration($input, $output);
         DoctrineCommand::configureMigrations($this->getApplication()->getKernel()->getContainer(), $configuration);
 
-        // grab migrations before execution
-        $versions = $configuration->getMigrationsToExecute('up', $configuration->getLatestVersion());
+        $from = $configuration->getCurrentVersion();
+        $to = $input->getArgument('version');
+
+        if ($to === null) {
+            $to = $configuration->getLatestVersion();
+        }
+
+        $direction = $from > $to ? 'down' : 'up';
+        $migrationsToExecute = $configuration->getMigrationsToExecute($direction, $to);
 
         parent::execute($input, $output);
 
-        foreach ($versions as $version) {
+        foreach ($migrationsToExecute as $version) {
             $migration = $version->getMigration();
             if ($migration instanceof AbstractMigration) {
                 $output->writeln('');
-                $output->writeln(sprintf('Running data migration: "%s"', $migration->getDataDescription()));
-
-                $migration->dataUp($this->getApplication()->getKernel()->getContainer());
+                $output->writeln(sprintf('Running data migration %s to: <info>%s</info>', $direction, $migration->getDataDescription()));
+                if ('up' == $direction) {
+                    $migration->dataUp($this->getApplication()->getKernel()->getContainer());
+                } else {
+                    $migration->dataDown($this->getApplication()->getKernel()->getContainer());
+                }
             }
         }
     }
