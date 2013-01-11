@@ -53,6 +53,8 @@ Wrapper for DoctrineMigrationsBundle that enables container aware migrations.
     `Doctrine\DBAL\Migrations\AbstractMigration` will still run normally)
 *   Implement the `dataUp()` method and add your custom migration logic. (**note:** The `up()` method will be run 
     before `dataUp`)
+*   Implement the `dataDown()` method and add your custom migration logic. (**note:** The `down()` method will be run 
+    before `dataDown`)
 *   _Optionally_ implement the `getDataDescription` method and return a description of the migration.
 *   Migrate using the `zenstruck:migrations:migrate` command.
     (**note:** make sure you run migrations with this command and not `doctrine:migrations:migrate`
@@ -92,6 +94,11 @@ class Version20120419113825 extends AbstractMigration
         // container aware logic
     }
     
+    public function dataDown(ContainerInterface $container)
+    {
+        // container aware logic
+    }
+
     /**
      * OPTIONAL
      */
