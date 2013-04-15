@@ -1,5 +1,8 @@
 # ZenstruckMigrationsBundle
 
+**NOTE:** [DoctrineMigrationsBundle](https://github.com/doctrine/DoctrineMigrationsBundle) now
+[supports ContainerAware migrations](https://github.com/doctrine/DoctrineMigrationsBundle/pull/28)
+
 Wrapper for DoctrineMigrationsBundle that enables container aware migrations.
 
 **NOTE:** For use with `Symfony 2.0` use the `1.x` branch
